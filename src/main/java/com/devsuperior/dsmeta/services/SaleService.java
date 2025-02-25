@@ -30,7 +30,7 @@ public class SaleService {
 	}
 
 	public Page<SaleSummaryDTO> findSummary(LocalDate minDate, LocalDate maxDate, Pageable pageable) {
-		LocalDate today = LocalDate.now();
+		LocalDate today = LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());
 
 		LocalDate initialDate;
 
@@ -50,7 +50,6 @@ public class SaleService {
 	public Page<SaleReportDTO> findReport(LocalDate minDate, LocalDate maxDate, String name, Pageable pageable) {
 		LocalDate today = LocalDate.now();
 		LocalDate initialDate;
-
 
 		if(minDate != null) {
 			initialDate = minDate;
